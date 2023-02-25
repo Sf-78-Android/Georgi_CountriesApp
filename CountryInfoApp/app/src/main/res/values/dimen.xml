@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_start_text">15dp</dimen>
+    <dimen name="linear_margin_bottom">10dp</dimen>
     <dimen name="text_size">17sp</dimen>
     <dimen name="recycler_view_height">0dp</dimen>
+    <dimen name="overall_margin">6dp</dimen>
+    <dimen name="overall_padding">8dp</dimen>
     <dimen name="margin_top_dp">15dp</dimen>
     <dimen name="margin_start_dp">12dp</dimen>
     <dimen name="padding_bottom">8dp</dimen>
+    <dimen name="progress_bar_text_size">16sp</dimen>
 </resources>
