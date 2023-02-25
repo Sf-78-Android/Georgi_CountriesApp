@@ -2,13 +2,12 @@ package com.example.countryinfoapp.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.countryinfoapp.CountryListQuery
 import com.example.countryinfoapp.classes.CountryDiffUtil
-import com.example.countryinfoapp.constants.Constants.FLAGS_LINK
+import com.example.countryinfoapp.constants.Constants.FLAGS_LIST_LINK
 import com.example.countryinfoapp.databinding.CardListBinding
 import com.example.countryinfoapp.interfaces.OnClickCallback
 
@@ -33,7 +32,7 @@ class CountryAdapter(
                 regionText.text = list.continent.name
 
                 Glide.with(flagImageView)
-                    .load(String.format(FLAGS_LINK, list.code.lowercase()))
+                    .load(String.format(FLAGS_LIST_LINK, list.code.lowercase()))
                     .into(flagImageView)
             }
         }
