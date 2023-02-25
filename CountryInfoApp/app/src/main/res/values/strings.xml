@@ -7,5 +7,18 @@
     <string name="region_name">Region Name</string>
     <string name="looper_message">Only the main thread can get the apolloClient instance</string>
     <string name="failure_exception_message">Failure</string>
-    <string name="view_state_error_message">Error fetching countries</string>
+    <string name="view_state_error_list_message">Error fetching countries</string>
+    <string name="view_state_error_details_message">Error fetching details for the country.</string>
+    <string name="country_code">Country code is: </string>
+    <string name="name_of_the_country">Name of the country:</string>
+    <string name="country_name">CountryName</string>
+    <string name="capital">Capital:</string>
+    <string name="region">Region:</string>
+    <string name="currencies">Currencies:</string>
+    <string name="currency">Currency</string>
+    <string name="official_languages">Official Languages:</string>
+    <string name="languages">Languages</string>
+    <string name="calling_code_label">Calling Code:</string>
+    <string name="calling_code">CallingCode</string>
+    <string name="no_character_details_found">No, character details found!</string>
 </resources>
