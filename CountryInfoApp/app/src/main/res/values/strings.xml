@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CountryInfoApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="country_title">Country Title</string>
+    <string name="capital_name">Capital Name</string>
+    <string name="region_name">Region Name</string>
+    <string name="looper_message">Only the main thread can get the apolloClient instance</string>
+    <string name="failure_exception_message">Failure</string>
+    <string name="view_state_error_message">Error fetching countries</string>
+</resources>
