@@ -32,7 +32,7 @@ class CountryInfoViewModel @Inject constructor(
                 _cList.postValue(ViewState.Success(response))
             } catch (e: ApolloException) {
                 Log.e(APOLLO_TAG, context.getString(R.string.failure_exception_message), e)
-                _cList.postValue(ViewState.Error(context.getString(R.string.view_state_error_message)))
+                _cList.postValue(ViewState.Error(context.getString(R.string.view_state_error_list_message)))
             }
         }
     }

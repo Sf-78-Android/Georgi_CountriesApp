@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.countryinfoapp.CountryListQuery
 import com.example.countryinfoapp.adapters.CountryAdapter
 import com.example.countryinfoapp.classes.ViewState
@@ -44,22 +45,32 @@ class MainFragment : Fragment() {
     }
 
     private fun observeLiveData() {
-        countryListVM.cList.observe(viewLifecycleOwner) { response ->
-            when (response) {
-                is ViewState.Loading -> {
-                    binding.countryListRV.visibility = View.GONE
-                }
-                is ViewState.Success -> {
-                    if (response.value?.data?.countries?.size == EMPTY_NUMBER) {
-                        binding.countryListRV.visibility = View.GONE
-                    } else {
-                        binding.countryListRV.visibility = View.VISIBLE
+        binding.apply {
+            countryListVM.cList.observe(viewLifecycleOwner) { response ->
+                when (response) {
+                    is ViewState.Loading -> {
+                        countryListRV.visibility = View.GONE
+                        progressBar.visibility = View.VISIBLE
+                        countryDetailsNotFound.visibility = View.GONE
                     }
-                    val results = response.value?.data?.countries
-                    getAdapter(results)
-                }
-                is ViewState.Error -> {
-                    binding.countryListRV.visibility = View.GONE
+                    is ViewState.Success -> {
+                        if (response.value?.data?.countries?.size == EMPTY_NUMBER) {
+                            countryListRV.visibility = View.GONE
+                            progressBar.visibility = View.VISIBLE
+                            countryDetailsNotFound.visibility = View.VISIBLE
+                        } else {
+                            countryListRV.visibility = View.VISIBLE
+                            progressBar.visibility = View.GONE
+                            countryDetailsNotFound.visibility = View.GONE
+                        }
+                        val results = response.value?.data?.countries
+                        getAdapter(results)
+                    }
+                    is ViewState.Error -> {
+                        countryListRV.visibility = View.GONE
+                        progressBar.visibility = View.VISIBLE
+                        countryDetailsNotFound.visibility = View.VISIBLE
+                    }
                 }
             }
         }
@@ -71,6 +82,8 @@ class MainFragment : Fragment() {
         adapter?.setOnItemClickListener(object : OnClickCallback {
             override fun onItemClick(countryList: CountryListQuery.Country) {
                 val bundle = bundleOf(CODE to countryList.code)
+                val action = MainFragmentDirections.openDetailsFragment()
+                findNavController().navigate(action.actionId, bundle)
             }
 
         })

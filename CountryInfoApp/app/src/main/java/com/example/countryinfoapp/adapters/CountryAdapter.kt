@@ -1,14 +1,13 @@
 package com.example.countryinfoapp.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.countryinfoapp.CountryListQuery
 import com.example.countryinfoapp.classes.CountryDiffUtil
-import com.example.countryinfoapp.constants.Constants.FLAGS_LINK
+import com.example.countryinfoapp.classes.utilities.glideSetup
 import com.example.countryinfoapp.databinding.CardListBinding
 import com.example.countryinfoapp.interfaces.OnClickCallback
 
@@ -32,17 +31,16 @@ class CountryAdapter(
                 capitalText.text = list.capital
                 regionText.text = list.continent.name
 
-                Glide.with(flagImageView)
-                    .load(String.format(FLAGS_LINK, list.code.lowercase()))
-                    .into(flagImageView)
+                glideSetup(flagImageView, list)
             }
-        }
 
-        init {
-            //Setting the new interface listener here, using it's position parameter
-            itemView.setOnClickListener {
-                mListener?.onItemClick(countryList[adapterPosition])
-            }
+            itemClickListenerSetup(itemView, countryList[adapterPosition])
+        }
+    }
+
+    private fun itemClickListenerSetup(itemView: View, country: CountryListQuery.Country) {
+        itemView.setOnClickListener {
+            mListener?.onItemClick(country)
         }
     }
 

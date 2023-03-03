@@ -4,7 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_margin="5dp"
-    app:cardBackgroundColor="@color/teal_200"
+    app:cardBackgroundColor="@color/light_green"
     app:cardCornerRadius="12dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_start_text"
             android:text="@string/country_title"
-            android:textColor="@color/white"
+            android:textColor="@color/dark_grey"
             android:textSize="@dimen/text_size"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_start_text"
             android:text="@string/capital_name"
-            android:textColor="@color/white"
+            android:textColor="@color/dark_grey"
             android:textSize="@dimen/text_size"
             app:layout_constraintTop_toBottomOf="@id/country_text"
             app:layout_constraintStart_toEndOf="@id/flag_image_view"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_start_text"
             android:text="@string/region_name"
-            android:textColor="@color/white"
+            android:textColor="@color/dark_grey"
             android:textSize="@dimen/text_size"
             app:layout_constraintTop_toBottomOf="@id/capital_text"
             app:layout_constraintStart_toEndOf="@id/flag_image_view"/>
