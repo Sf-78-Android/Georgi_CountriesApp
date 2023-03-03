@@ -7,10 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
-import com.bumptech.glide.Glide
 import com.example.countryinfoapp.R
 import com.example.countryinfoapp.classes.ViewState
-import com.example.countryinfoapp.constants.Constants
+import com.example.countryinfoapp.classes.utilities.glideSetup
 import com.example.countryinfoapp.constants.Constants.BUNDLE_TAG
 import com.example.countryinfoapp.constants.Constants.CODE
 import com.example.countryinfoapp.databinding.FragmentDetailsBinding
@@ -65,17 +64,15 @@ class DetailsFragment : Fragment() {
                                 countryDetailsNotFound.visibility = View.GONE
                             }
                             val results = countryDetails.value?.data?.country
-                            results?.let {
-                                countryTextView.text = it.name
-                                capitalTextView.text = it.capital
-                                regionTextView.text = it.continent.name
-                                currenciesTextView.text = it.currency
-                                officialLanguagesTextView.text = it.native
-                                phoneCodesTextView.text = it.phone
+                            results?.let { cDetails ->
+                                countryTextView.text = cDetails.name
+                                capitalTextView.text = cDetails.capital
+                                regionTextView.text = cDetails.continent.name
+                                currenciesTextView.text = cDetails.currency
+                                officialLanguagesTextView.text = cDetails.native
+                                phoneCodesTextView.text = cDetails.phone
 
-                                Glide.with(flagImageView)
-                                    .load(String.format(Constants.FLAGS_DETAILS_LINK, it.code.lowercase()))
-                                    .into(flagImageView)
+                                glideSetup(flagImageView, cDetails)
                             }
                         }
 
